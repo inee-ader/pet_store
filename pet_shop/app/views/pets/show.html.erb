@@ -1,0 +1,10 @@
+
+<h1>Name:<%=@pet.name%></h1>
+<h3>Species:<%=@pet.species%></h3><br>
+<h3>Birth Year:<%=@pet.year_of_birth%><br>
+<h3>Family Pet?<%if @pet.good_with_kids == true%>
+<p>"Good with children"</p>
+<%else%>
+<p>"Prefers a home without children"</p>
+<%end%>
+

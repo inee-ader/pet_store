@@ -1,0 +1,1278 @@
+  [1m[35m (6.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePets (20201028204430)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "species" varchar, "year_of_birth" integer, "good_with_kids" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201028204430"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-28 20:46:49.884051"], ["updated_at", "2020-10-28 20:46:49.884051"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-10-28 13:48:34 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 26.8ms | Allocations: 481)
+Completed 200 OK in 78ms (Views: 53.5ms | ActiveRecord: 0.0ms | Allocations: 2775)
+
+
+Started GET "/pet" for ::1 at 2020-10-28 13:48:40 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/pet"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/rails/info/routes" for ::1 at 2020-10-28 13:50:15 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/actionpack-6.0.3.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [28 times] (Duration: 7.7ms | Allocations: 4036)
+  Rendered /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/actionpack-6.0.3.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 2.6ms | Allocations: 930)
+  Rendered /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 19.6ms | Allocations: 7695)
+Completed 200 OK in 36ms (Views: 29.3ms | ActiveRecord: 0.0ms | Allocations: 9720)
+
+
+Started GET "/" for ::1 at 2020-10-28 13:50:27 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.5ms | Allocations: 320)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 1173)
+
+
+Started GET "/" for ::1 at 2020-10-28 13:50:41 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 25.3ms | Allocations: 8)
+Completed 200 OK in 26ms (Views: 25.7ms | ActiveRecord: 0.0ms | Allocations: 341)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.9ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Minerva McGonagall"], ["species", "Earth Elemental"], ["year_of_birth", 1843], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:55.902705"], ["updated_at", "2020-10-28 21:02:55.902705"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Marcus Belby"], ["species", "Dretch"], ["year_of_birth", 1832], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:55.907545"], ["updated_at", "2020-10-28 21:02:55.907545"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Bane"], ["species", "Lamia"], ["year_of_birth", 1805], ["good_with_kids", 1], ["created_at", "2020-10-28 21:02:55.911309"], ["updated_at", "2020-10-28 21:02:55.911309"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Septima Vector"], ["species", "Adult White Dragon"], ["year_of_birth", 1825], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:55.914570"], ["updated_at", "2020-10-28 21:02:55.914570"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.5ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Millicent Bulstrode"], ["species", "Ogre"], ["year_of_birth", 1845], ["good_with_kids", 1], ["created_at", "2020-10-28 21:02:55.918483"], ["updated_at", "2020-10-28 21:02:55.918483"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mrs. Norris"], ["species", "Blue Dragon Wyrmling"], ["year_of_birth", 1848], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:55.922880"], ["updated_at", "2020-10-28 21:02:55.922880"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Marcus Flint"], ["species", "Young Bronze Dragon"], ["year_of_birth", 1806], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:55.926651"], ["updated_at", "2020-10-28 21:02:55.926651"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Albus Dumbledore"], ["species", "Succubus/Incubus"], ["year_of_birth", 1820], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:55.930280"], ["updated_at", "2020-10-28 21:02:55.930280"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Aragog"], ["species", "Dragon Turtle"], ["year_of_birth", 1850], ["good_with_kids", 1], ["created_at", "2020-10-28 21:02:55.934382"], ["updated_at", "2020-10-28 21:02:55.934382"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Pius Thicknesse"], ["species", "Chuul"], ["year_of_birth", 1810], ["good_with_kids", 1], ["created_at", "2020-10-28 21:02:55.938316"], ["updated_at", "2020-10-28 21:02:55.938316"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Myrtle Warren"], ["species", "Shrieker"], ["year_of_birth", 1836], ["good_with_kids", 1], ["created_at", "2020-10-28 21:02:55.942261"], ["updated_at", "2020-10-28 21:02:55.942261"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Cedric Diggory"], ["species", "Deva"], ["year_of_birth", 1841], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:55.945841"], ["updated_at", "2020-10-28 21:02:55.945841"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Norbert"], ["species", "Nightmare"], ["year_of_birth", 1801], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:55.948978"], ["updated_at", "2020-10-28 21:02:55.948978"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Draco Malfoy"], ["species", "Young Bronze Dragon"], ["year_of_birth", 1803], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:55.952920"], ["updated_at", "2020-10-28 21:02:55.952920"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Rowena Ravenclaw"], ["species", "Minotaur Skeleton"], ["year_of_birth", 1822], ["good_with_kids", 1], ["created_at", "2020-10-28 21:02:55.956955"], ["updated_at", "2020-10-28 21:02:55.956955"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Padma Patil"], ["species", "Erinyes"], ["year_of_birth", 1808], ["good_with_kids", 1], ["created_at", "2020-10-28 21:02:55.960258"], ["updated_at", "2020-10-28 21:02:55.960258"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Padma Patil"], ["species", "Djinni"], ["year_of_birth", 1845], ["good_with_kids", 1], ["created_at", "2020-10-28 21:02:55.963767"], ["updated_at", "2020-10-28 21:02:55.963767"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.5ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Magorian"], ["species", "Dretch"], ["year_of_birth", 1827], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:55.967763"], ["updated_at", "2020-10-28 21:02:55.967763"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Gilderoy Lockhart"], ["species", "Figurine of Wondrous Power"], ["year_of_birth", 1816], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:55.986420"], ["updated_at", "2020-10-28 21:02:55.986420"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Dudley Dursley"], ["species", "Ettercap"], ["year_of_birth", 1842], ["good_with_kids", 1], ["created_at", "2020-10-28 21:02:55.990433"], ["updated_at", "2020-10-28 21:02:55.990433"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Ariana Dumbledore"], ["species", "Young Copper Dragon"], ["year_of_birth", 1836], ["good_with_kids", 1], ["created_at", "2020-10-28 21:02:55.994105"], ["updated_at", "2020-10-28 21:02:55.994105"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Lord Voldemort"], ["species", "Young Red Dragon"], ["year_of_birth", 1804], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:55.997666"], ["updated_at", "2020-10-28 21:02:55.997666"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Graham Montague"], ["species", "Planetar"], ["year_of_birth", 1834], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:56.001203"], ["updated_at", "2020-10-28 21:02:56.001203"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Beedle the Bard"], ["species", "Pseudodragon"], ["year_of_birth", 1836], ["good_with_kids", 0], ["created_at", "2020-10-28 21:02:56.004768"], ["updated_at", "2020-10-28 21:02:56.004768"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Madam Rosmerta"], ["species", "Gnoll"], ["year_of_birth", 1831], ["good_with_kids", 1], ["created_at", "2020-10-28 21:02:56.008389"], ["updated_at", "2020-10-28 21:02:56.008389"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/pets" for ::1 at 2020-10-28 14:11:46 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant PetsController
+Did you mean?  PetController):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/pets" for ::1 at 2020-10-28 14:12:56 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PetsController#index as HTML
+Completed 406 Not Acceptable in 8ms (ActiveRecord: 0.0ms | Allocations: 2310)
+
+
+  
+ActionController::MissingExactTemplate (PetsController#index is missing a template for request formats: text/html):
+  
+actionpack (6.0.3.4) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.3.4) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.3.4) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.3.4) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.4) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.4) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.4) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.4) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.4) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/pets" for ::1 at 2020-10-28 14:12:58 -0700
+Processing by PetsController#index as HTML
+Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.0ms | Allocations: 619)
+
+
+  
+ActionController::MissingExactTemplate (PetsController#index is missing a template for request formats: text/html):
+  
+actionpack (6.0.3.4) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.3.4) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.3.4) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.3.4) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.4) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.4) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.4) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.4) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.4) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/rails/info/routes" for ::1 at 2020-10-28 14:13:13 -0700
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/actionpack-6.0.3.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [28 times] (Duration: 6.1ms | Allocations: 4035)
+  Rendered /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/actionpack-6.0.3.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 2.2ms | Allocations: 929)
+  Rendered /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 11.9ms | Allocations: 7570)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 8915)
+
+
+Started GET "/rails/info/routes" for ::1 at 2020-10-28 14:13:17 -0700
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/actionpack-6.0.3.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [28 times] (Duration: 6.6ms | Allocations: 4004)
+  Rendered /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/actionpack-6.0.3.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.0ms | Allocations: 704)
+  Rendered /Users/xoliio/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 11.0ms | Allocations: 7291)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 8688)
+
+
+Started GET "/pets" for ::1 at 2020-10-28 14:14:37 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PetsController#index as HTML
+Completed 406 Not Acceptable in 5ms (ActiveRecord: 0.0ms | Allocations: 2245)
+
+
+  
+ActionController::MissingExactTemplate (PetsController#index is missing a template for request formats: text/html):
+  
+actionpack (6.0.3.4) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.3.4) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.3.4) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.3.4) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.4) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.4) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.4) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.4) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.4) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/pets" for ::1 at 2020-10-28 14:17:45 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/views/pets/index.html.erb:3
+  Rendered pets/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 6564)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/xoliio/Codes/pet_store/pet_shop/public/packs
+[Webpacker] Hash: 15d1bb7b54cf6326b9ba
+Version: webpack 4.44.2
+Time: 1783ms
+Built at: 10/28/2020 2:17:49 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 4129ms (Views: 4127.5ms | ActiveRecord: 0.7ms | Allocations: 25260)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "species" varchar, "year_of_birth" integer, "good_with_kids" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201028204430)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-28 21:21:01.529115"], ["updated_at", "2020-10-28 21:21:01.529115"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "8123f78bfabb2a90fbeb6be0a8503bd064ec624f"], ["created_at", "2020-10-28 21:21:01.546405"], ["updated_at", "2020-10-28 21:21:01.546405"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets"[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "species" varchar, "year_of_birth" integer, "good_with_kids" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201028204430)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-28 21:21:01.574653"], ["updated_at", "2020-10-28 21:21:01.574653"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2020-10-28 21:21:01.585793"], ["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "8123f78bfabb2a90fbeb6be0a8503bd064ec624f"], ["created_at", "2020-10-28 21:21:01.615390"], ["updated_at", "2020-10-28 21:21:01.615390"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (1.2ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Merope Gaunt"], ["species", "hippopotamus"], ["year_of_birth", 1802], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:01.875177"], ["updated_at", "2020-10-28 21:21:01.875177"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (1.7ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Ernie Macmillan"], ["species", "red dragon"], ["year_of_birth", 1802], ["good_with_kids", 0], ["created_at", "2020-10-28 21:21:01.883730"], ["updated_at", "2020-10-28 21:21:01.883730"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.9ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Augusta Longbottom"], ["species", "snail"], ["year_of_birth", 1848], ["good_with_kids", 0], ["created_at", "2020-10-28 21:21:01.893820"], ["updated_at", "2020-10-28 21:21:01.893820"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.6ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Marvolo Gaunt"], ["species", "griffon"], ["year_of_birth", 1829], ["good_with_kids", 0], ["created_at", "2020-10-28 21:21:01.906351"], ["updated_at", "2020-10-28 21:21:01.906351"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.5ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Grawp"], ["species", "griffon"], ["year_of_birth", 1819], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:01.938142"], ["updated_at", "2020-10-28 21:21:01.938142"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.9ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mr. Roberts"], ["species", "hippopotamus"], ["year_of_birth", 1822], ["good_with_kids", 0], ["created_at", "2020-10-28 21:21:01.944304"], ["updated_at", "2020-10-28 21:21:01.944304"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.5ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Helga Hufflepuff"], ["species", "snail"], ["year_of_birth", 1837], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:01.950847"], ["updated_at", "2020-10-28 21:21:01.950847"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.5ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Padma Patil"], ["species", "snail"], ["year_of_birth", 1805], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:01.956292"], ["updated_at", "2020-10-28 21:21:01.956292"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Amycus Carrow"], ["species", "red dragon"], ["year_of_birth", 1845], ["good_with_kids", 0], ["created_at", "2020-10-28 21:21:01.961771"], ["updated_at", "2020-10-28 21:21:01.961771"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Ignotus Peverell"], ["species", "hippopotamus"], ["year_of_birth", 1802], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:01.966081"], ["updated_at", "2020-10-28 21:21:01.966081"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tom Marvolo Riddle"], ["species", "griffon"], ["year_of_birth", 1825], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:01.971715"], ["updated_at", "2020-10-28 21:21:01.971715"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Marcus Belby"], ["species", "snail"], ["year_of_birth", 1846], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:01.976185"], ["updated_at", "2020-10-28 21:21:01.976185"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Draco Malfoy"], ["species", "griffon"], ["year_of_birth", 1826], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:01.980000"], ["updated_at", "2020-10-28 21:21:01.980000"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "The Fat Friar"], ["species", "hippopotamus"], ["year_of_birth", 1803], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:01.983655"], ["updated_at", "2020-10-28 21:21:01.983655"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Sir Cadogan"], ["species", "red dragon"], ["year_of_birth", 1833], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:01.988637"], ["updated_at", "2020-10-28 21:21:01.988637"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Godric Gryffindor"], ["species", "red dragon"], ["year_of_birth", 1818], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:01.993929"], ["updated_at", "2020-10-28 21:21:01.993929"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.6ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Kreacher"], ["species", "red dragon"], ["year_of_birth", 1828], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:02.001255"], ["updated_at", "2020-10-28 21:21:02.001255"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.9ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Petunia Dursley"], ["species", "hippopotamus"], ["year_of_birth", 1804], ["good_with_kids", 0], ["created_at", "2020-10-28 21:21:02.008230"], ["updated_at", "2020-10-28 21:21:02.008230"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Justin Finch-Fletchley"], ["species", "red dragon"], ["year_of_birth", 1818], ["good_with_kids", 0], ["created_at", "2020-10-28 21:21:02.014587"], ["updated_at", "2020-10-28 21:21:02.014587"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.5ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Kennilworthy Whisp"], ["species", "red dragon"], ["year_of_birth", 1811], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:02.018718"], ["updated_at", "2020-10-28 21:21:02.018718"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Ludo Bagman"], ["species", "griffon"], ["year_of_birth", 1810], ["good_with_kids", 0], ["created_at", "2020-10-28 21:21:02.023595"], ["updated_at", "2020-10-28 21:21:02.023595"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.8ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Albert Runcorn"], ["species", "griffon"], ["year_of_birth", 1821], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:02.028317"], ["updated_at", "2020-10-28 21:21:02.028317"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Bartemius Crouch, Sr."], ["species", "griffon"], ["year_of_birth", 1836], ["good_with_kids", 0], ["created_at", "2020-10-28 21:21:02.033682"], ["updated_at", "2020-10-28 21:21:02.033682"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "The Bloody Baron"], ["species", "red dragon"], ["year_of_birth", 1829], ["good_with_kids", 0], ["created_at", "2020-10-28 21:21:02.038280"], ["updated_at", "2020-10-28 21:21:02.038280"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Dirk Cresswell"], ["species", "hippopotamus"], ["year_of_birth", 1840], ["good_with_kids", 1], ["created_at", "2020-10-28 21:21:02.042449"], ["updated_at", "2020-10-28 21:21:02.042449"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.7ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.4ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 4]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 5]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 6]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.5ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 7]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.4ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 8]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.5ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 9]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.4ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 10]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 11]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.4ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 12]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.4ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 13]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 14]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.4ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 15]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (1.1ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 16]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.5ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 17]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.4ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 18]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 19]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.5ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 20]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 21]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (1.2ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 22]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.4ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 23]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (1.0ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 24]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Destroy (0.5ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = ?[0m  [["id", 25]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Scabior"], ["species", "griffon"], ["year_of_birth", 1821], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.246061"], ["updated_at", "2020-10-28 21:22:11.246061"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Walden Macnair"], ["species", "hippopotamus"], ["year_of_birth", 1821], ["good_with_kids", 1], ["created_at", "2020-10-28 21:22:11.250074"], ["updated_at", "2020-10-28 21:22:11.250074"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Norbert"], ["species", "griffon"], ["year_of_birth", 1812], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.253751"], ["updated_at", "2020-10-28 21:22:11.253751"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Cedric Diggory"], ["species", "snail"], ["year_of_birth", 1801], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.256769"], ["updated_at", "2020-10-28 21:22:11.256769"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Viktor Krum"], ["species", "snail"], ["year_of_birth", 1805], ["good_with_kids", 1], ["created_at", "2020-10-28 21:22:11.260009"], ["updated_at", "2020-10-28 21:22:11.260009"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Katie Bell"], ["species", "griffon"], ["year_of_birth", 1804], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.263522"], ["updated_at", "2020-10-28 21:22:11.263522"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Antioch Peverell"], ["species", "hippopotamus"], ["year_of_birth", 1800], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.267205"], ["updated_at", "2020-10-28 21:22:11.267205"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Amos Diggory"], ["species", "red dragon"], ["year_of_birth", 1842], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.270929"], ["updated_at", "2020-10-28 21:22:11.270929"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Minerva McGonagall"], ["species", "snail"], ["year_of_birth", 1812], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.277635"], ["updated_at", "2020-10-28 21:22:11.277635"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mr. Roberts"], ["species", "griffon"], ["year_of_birth", 1819], ["good_with_kids", 1], ["created_at", "2020-10-28 21:22:11.282440"], ["updated_at", "2020-10-28 21:22:11.282440"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Narcissa Malfoy"], ["species", "snail"], ["year_of_birth", 1812], ["good_with_kids", 1], ["created_at", "2020-10-28 21:22:11.286606"], ["updated_at", "2020-10-28 21:22:11.286606"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.7ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Draco Malfoy"], ["species", "griffon"], ["year_of_birth", 1834], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.291755"], ["updated_at", "2020-10-28 21:22:11.291755"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Padma Patil"], ["species", "snail"], ["year_of_birth", 1812], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.296569"], ["updated_at", "2020-10-28 21:22:11.296569"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Hepzibah Smith"], ["species", "red dragon"], ["year_of_birth", 1846], ["good_with_kids", 1], ["created_at", "2020-10-28 21:22:11.300151"], ["updated_at", "2020-10-28 21:22:11.300151"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Ted Tonks"], ["species", "snail"], ["year_of_birth", 1847], ["good_with_kids", 1], ["created_at", "2020-10-28 21:22:11.304629"], ["updated_at", "2020-10-28 21:22:11.304629"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Arabella Figg"], ["species", "hippopotamus"], ["year_of_birth", 1841], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.309532"], ["updated_at", "2020-10-28 21:22:11.309532"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Antonin Dolohov"], ["species", "red dragon"], ["year_of_birth", 1829], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.313809"], ["updated_at", "2020-10-28 21:22:11.313809"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Ludo Bagman"], ["species", "griffon"], ["year_of_birth", 1833], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.317629"], ["updated_at", "2020-10-28 21:22:11.317629"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Ted Tonks"], ["species", "hippopotamus"], ["year_of_birth", 1850], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.322120"], ["updated_at", "2020-10-28 21:22:11.322120"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.5ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Sybill Trelawney"], ["species", "snail"], ["year_of_birth", 1808], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.326569"], ["updated_at", "2020-10-28 21:22:11.326569"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Alicia Spinnet"], ["species", "griffon"], ["year_of_birth", 1832], ["good_with_kids", 0], ["created_at", "2020-10-28 21:22:11.331136"], ["updated_at", "2020-10-28 21:22:11.331136"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (1.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Dirk Cresswell"], ["species", "red dragon"], ["year_of_birth", 1827], ["good_with_kids", 1], ["created_at", "2020-10-28 21:22:11.334942"], ["updated_at", "2020-10-28 21:22:11.334942"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Grawp"], ["species", "red dragon"], ["year_of_birth", 1848], ["good_with_kids", 1], ["created_at", "2020-10-28 21:22:11.340792"], ["updated_at", "2020-10-28 21:22:11.340792"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Rodolphus Lestrange"], ["species", "snail"], ["year_of_birth", 1836], ["good_with_kids", 1], ["created_at", "2020-10-28 21:22:11.345422"], ["updated_at", "2020-10-28 21:22:11.345422"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "year_of_birth", "good_with_kids", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Madam Rosmerta"], ["species", "griffon"], ["year_of_birth", 1846], ["good_with_kids", 1], ["created_at", "2020-10-28 21:22:11.349993"], ["updated_at", "2020-10-28 21:22:11.349993"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/pets" for ::1 at 2020-10-28 14:23:50 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/views/pets/index.html.erb:3
+  Rendered pets/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 6575)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 61ms (Views: 52.5ms | ActiveRecord: 0.7ms | Allocations: 14447)
+
+
+Started GET "/" for ::1 at 2020-10-28 14:30:30 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PetsController#welcome as HTML
+  Rendering pets/welcome.html.erb within layouts/application
+  Rendered pets/welcome.html.erb within layouts/application (Duration: 1.1ms | Allocations: 204)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 21.0ms | ActiveRecord: 0.0ms | Allocations: 7721)
+
+
+Started GET "/" for ::1 at 2020-10-28 14:30:33 -0700
+Processing by PetsController#welcome as HTML
+  Rendering pets/welcome.html.erb within layouts/application
+  Rendered pets/welcome.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 37.5ms | ActiveRecord: 0.0ms | Allocations: 3869)
+
+
+Started GET "/" for ::1 at 2020-10-28 14:32:13 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PetsController#welcome as HTML
+  Rendering pets/welcome.html.erb within layouts/application
+  Rendered pets/welcome.html.erb within layouts/application (Duration: 1.3ms | Allocations: 280)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 19.9ms | ActiveRecord: 0.0ms | Allocations: 8080)
+
+
+Started GET "/pets" for ::1 at 2020-10-28 14:32:18 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/views/pets/index.html.erb:3
+  Rendered pets/index.html.erb within layouts/application (Duration: 9.4ms | Allocations: 6471)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 14.9ms | ActiveRecord: 0.8ms | Allocations: 10845)
+
+
+Started GET "/pets" for ::1 at 2020-10-28 14:34:41 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  Rendered pets/index.html.erb within layouts/application (Duration: 13.2ms | Allocations: 3411)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 4615)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Pets Available</h1>
+<ul>
+    <%@pets.each do |pet|%>
+    <li><%=link_to "<%=pet.name%><%=pet.species%>"
+    <%end%>
+</ul>    
+
+<%=pet.year_of_birth%>-<%=pet.good_with_kids%></li>
+):
+1:    <h1>Pets Available</h1>
+2:    <ul>
+3:        <%@pets.each do |pet|%>
+4:        <li><%=link_to "<%=pet.name%><%=pet.species%>"
+5:        <%end%>
+6:    </ul>    
+7:    
+8:    <%=pet.year_of_birth%>-<%=pet.good_with_kids%></li>
+  
+app/views/pets/index.html.erb:8: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:8: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:8: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:8: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:8: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:8: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/pets" for ::1 at 2020-10-28 14:35:02 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  Rendered pets/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1080)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2300)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Pets Available</h1>
+<ul>
+    <%@pets.each do |pet|%>
+    <li><%=link_to "<%=pet.name%><%=pet.species%>"
+    <%end%>
+</ul>    
+
+<%#=pet.year_of_birth%>-<%=pet.good_with_kids%></li>
+):
+1:    <h1>Pets Available</h1>
+2:    <ul>
+3:        <%@pets.each do |pet|%>
+4:        <li><%=link_to "<%=pet.name%><%=pet.species%>"
+5:        <%end%>
+6:    </ul>    
+7:    
+8:    <%#=pet.year_of_birth%>-<%=pet.good_with_kids%></li>
+  
+app/views/pets/index.html.erb:8: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:8: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:8: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:8: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:8: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:8: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/pets" for ::1 at 2020-10-28 14:35:30 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  Rendered pets/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1077)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2269)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Pets Available</h1>
+<ul>
+    <%@pets.each do |pet|%>
+    <li><%=link_to "<%=pet.name%><%=pet.species%>" </li>
+    <%end%>
+</ul>    
+
+<%#=pet.year_of_birth%>-<%#=pet.good_with_kids%>
+):
+1:    <h1>Pets Available</h1>
+2:    <ul>
+3:        <%@pets.each do |pet|%>
+4:        <li><%=link_to "<%=pet.name%><%=pet.species%>" </li>
+5:        <%end%>
+6:    </ul>    
+7:    
+8:    <%#=pet.year_of_birth%>-<%#=pet.good_with_kids%>
+  
+app/views/pets/index.html.erb:6: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:6: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:6: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:6: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:6: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/pets/index.html.erb:6: unknown regexp option - l
+app/views/pets/index.html.erb:10: unterminated string meets end of file
+app/views/pets/index.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/pets" for ::1 at 2020-10-28 14:39:31 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  Rendered pets/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1080)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2272)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Pets Available</h1>
+<ul>
+    <%@pets.each do |pet|%>
+    <li><%=link_to <%=pet.name%><%=pet.species%> </li>
+    <%end%>
+</ul>    
+
+<%#=pet.year_of_birth%>-<%#=pet.good_with_kids%>
+):
+1:    <h1>Pets Available</h1>
+2:    <ul>
+3:        <%@pets.each do |pet|%>
+4:        <li><%=link_to <%=pet.name%><%=pet.species%> </li>
+5:        <%end%>
+6:    </ul>    
+7:    
+8:    <%#=pet.year_of_birth%>-<%#=pet.good_with_kids%>
+  
+app/views/pets/index.html.erb:4: syntax error, unexpected '(', expecting ')'
+app/views/pets/index.html.erb:4: syntax error, unexpected '(', expecting ')'
+app/views/pets/index.html.erb:4: syntax error, unexpected '(', expecting ')'
+app/views/pets/index.html.erb:4: syntax error, unexpected '(', expecting ')'
+app/views/pets/index.html.erb:4: syntax error, unexpected '(', expecting ')'
+app/views/pets/index.html.erb:4: syntax error, unexpected '(', expecting ')'
+Started GET "/pets" for ::1 at 2020-10-28 14:40:22 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/views/pets/index.html.erb:3
+  Rendered pets/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1851)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.2ms | Allocations: 6696)
+
+
+Started GET "/pets/26" for ::1 at 2020-10-28 14:40:26 -0700
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for PetsController):
+  
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.4) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/pets/" for ::1 at 2020-10-28 14:41:48 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/views/pets/index.html.erb:3
+  Rendered pets/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1812)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.2ms | Allocations: 6612)
+
+
+Started GET "/pets/" for ::1 at 2020-10-28 14:42:20 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/views/pets/index.html.erb:3
+  Rendered pets/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1867)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.4ms | Allocations: 6668)
+
+
+Started GET "/pets/" for ::1 at 2020-10-28 14:42:36 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/views/pets/index.html.erb:3
+  Rendered pets/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1874)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.2ms | Allocations: 6672)
+
+
+Started GET "/pets/" for ::1 at 2020-10-28 14:48:29 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/views/pets/index.html.erb:3
+  Rendered pets/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1905)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.3ms | Allocations: 6721)
+
+
+Started GET "/pets/" for ::1 at 2020-10-28 14:48:33 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/views/pets/index.html.erb:3
+  Rendered pets/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1704)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 5576)
+
+
+Started GET "/pets/28" for ::1 at 2020-10-28 14:48:34 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"28"}
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1431)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1979)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h1>Name: <%=@pet.name%></h1>
+    2: <h3>Species:<%=@pet.species%></h3><br>
+    3: <h3>Birth Year:<%=@pet.year_of_birth%><br>
+    4: <h3>Family Pet?<%if @pet.good_with_kids == true%>
+  
+app/views/pets/show.html.erb:1
+Started GET "/pets/" for ::1 at 2020-10-28 14:48:47 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/views/pets/index.html.erb:3
+  Rendered pets/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1873)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.2ms | Allocations: 6675)
+
+
+Started GET "/pets/28" for ::1 at 2020-10-28 14:48:49 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"28"}
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1416)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1962)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h1>Name:<%=@pet.name%></h1>
+    2: <h3>Species:<%=@pet.species%></h3><br>
+    3: <h3>Birth Year:<%=@pet.year_of_birth%><br>
+    4: <h3>Family Pet?<%if @pet.good_with_kids == true%>
+  
+app/views/pets/show.html.erb:1
+Started GET "/pets/28" for ::1 at 2020-10-28 14:50:07 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"28"}
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1807)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 3712)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: byebug
+    2: <h1>Name:<%=@pet.name%></h1>
+    3: <h3>Species:<%=@pet.species%></h3><br>
+    4: <h3>Birth Year:<%=@pet.year_of_birth%><br>
+    5: <h3>Family Pet?<%if @pet.good_with_kids == true%>
+  
+app/views/pets/show.html.erb:2
+Started GET "/pets/" for ::1 at 2020-10-28 14:50:11 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/views/pets/index.html.erb:3
+  Rendered pets/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 6995)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.7ms | Allocations: 13614)
+
+
+Started GET "/pets/30" for ::1 at 2020-10-28 14:50:14 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"30"}
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1244)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1679)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: byebug
+    2: <h1>Name:<%=@pet.name%></h1>
+    3: <h3>Species:<%=@pet.species%></h3><br>
+    4: <h3>Birth Year:<%=@pet.year_of_birth%><br>
+    5: <h3>Family Pet?<%if @pet.good_with_kids == true%>
+  
+app/views/pets/show.html.erb:2
+Started PUT "/__web_console/repl_sessions/59d31d43bb0608e6ce8030821290e847" for ::1 at 2020-10-28 14:50:20 -0700
+Started PUT "/__web_console/repl_sessions/59d31d43bb0608e6ce8030821290e847" for ::1 at 2020-10-28 14:50:21 -0700
+Started PUT "/__web_console/repl_sessions/59d31d43bb0608e6ce8030821290e847" for ::1 at 2020-10-28 14:50:21 -0700
+Started GET "/pets/30" for ::1 at 2020-10-28 14:55:17 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"30"}
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1194)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1787)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: byebug
+    2: <h1>Name:<%=@pet.name%></h1>
+    3: <h3>Species:<%=@pet.species%></h3><br>
+    4: <h3>Birth Year:<%=@pet.year_of_birth%><br>
+    5: <h3>Family Pet?<%if @pet.good_with_kids == true%>
+  
+app/views/pets/show.html.erb:2
+Started GET "/" for ::1 at 2020-10-28 14:58:10 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PetsController#welcome as HTML
+  Rendering pets/welcome.html.erb within layouts/application
+  Rendered pets/welcome.html.erb within layouts/application (Duration: 1.5ms | Allocations: 281)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 7808)
+
+
+Started GET "/pets" for ::1 at 2020-10-28 14:58:13 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/views/pets/index.html.erb:3
+  Rendered pets/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 6967)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 14.8ms | ActiveRecord: 0.8ms | Allocations: 11382)
+
+
+Started GET "/pets/38" for ::1 at 2020-10-28 14:58:15 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"38"}
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1732)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2283)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: <h1>Name:<%=@pet.name%></h1>
+    3: <h3>Species:<%=@pet.species%></h3><br>
+    4: <h3>Birth Year:<%=@pet.year_of_birth%><br>
+    5: <h3>Family Pet?<%if @pet.good_with_kids == true%>
+  
+app/views/pets/show.html.erb:2
