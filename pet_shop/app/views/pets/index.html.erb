@@ -5,4 +5,10 @@
     <%end%>
 </ul>    
 
-<%#=pet.year_of_birth%>-<%#=pet.good_with_kids%>
+<ul>
+    <%@unique=@pets.uniq{|p| p.species}%>
+    <%@unique.each do |pet|%>
+    <li><%=link_to "Adopt a #{pet.species}!", "/#{pet.species}"%></li>
+    <%end%>
+</ul>
+

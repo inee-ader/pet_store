@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   resources :pets
 
+  get '/:species', to: "species#index"
+  
 end

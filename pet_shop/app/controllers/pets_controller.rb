@@ -1,7 +1,8 @@
 class PetsController < ApplicationController
     
+    before_action :find_pet, only: [:edit, :update, :destroy, :show]
+    
     def welcome
-        
     end
 
     def index 
@@ -14,22 +15,23 @@ class PetsController < ApplicationController
     end
 
     def edit
-        find_pet
     end
      
     def update
-        find_pet
         @pet.update(pet_params)
         redirect_to pet_path
     end
 
     def destroy
-        find_pet
         @pet.destroy
         redirect_to pets_path
     end
 
+    def show        
+    end
+
     private
+
     def find_pet
         @pet = Pet.find(params[:id])
     end

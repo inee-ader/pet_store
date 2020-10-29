@@ -1,10 +1,13 @@
 
-<h1>Name:<%=@pet.name%></h1>
-<h3>Species:<%=@pet.species%></h3><br>
-<h3>Birth Year:<%=@pet.year_of_birth%><br>
-<h3>Family Pet?<%if @pet.good_with_kids == true%>
-<p>"Good with children"</p>
+<h1><%=@pet.name%> the <%=@pet.species.capitalize%></h1>
+<h3>Age: <%=Time.current.year - @pet.year_of_birth%></h3>
+<h3>Family Pet? <%if @pet.good_with_kids == true%>
+Good with children
+<%elsif @pet.good_with_kids == false%>
+Prefers a home without children</h3>
 <%else%>
-<p>"Prefers a home without children"</p>
+Nothing happens
 <%end%>
+<br>
+<%= link_to "Back to adoptable cuties!", pets_path%>
 
